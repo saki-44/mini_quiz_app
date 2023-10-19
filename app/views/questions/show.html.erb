@@ -1,0 +1,10 @@
+<%= form_with model: @question, method: :post, local: true do |form| %>
+  <h1><%= @question.content %></h1>
+    <% @question.choices.each do |choice| %>
+      <li>
+        <%= form.radio_button :choice_id, choice.id %>
+        <%= label_tag "choice_#{choice.id}", choice.content %>
+      </li>
+    <% end %>
+  <%= form.submit "回答する" %>
+<% end %>
