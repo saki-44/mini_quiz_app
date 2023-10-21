@@ -2,26 +2,49 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show]
   
   def show
-    @question
+    @question = Question.find(params[:id])
     session[:current_question_id] = @question.id
   end
 
   def answer
     choice = Choice.find(params[:choice_id])
-    Answer.create(choice: choice)
-    redirect_to quiz_path(set_next_question)
+    if choice.correct
+      # 正解数をカウントアップ
+      session[:correct_answers] ||= 0
+      session[:correct_answers] += 1
+    end
+  
+    next_path = set_next_question
+    if next_path == :result
+      redirect_to result_path
+    else
+      redirect_to question_path(next_path)
+    end
+  end
+
+  def result
+    # セッションから正解数を取得し、ビューに渡す
+    @result = session[:correct_answers]
+    # セッションをリセット
+    session.clear
+    #session[:correct_answers] = 0
   end
 
   private
 
   def set_question
     @question = Question.find(params[:id])
-    #@question = Question.first
-    #@question = Question.find(session[:current_question_id] || Question.first.id)
   end
 
   def set_next_question
-    next_question = Question.where('id > ?', session[:current_question_id]).first
-    next_question || Question.first
+    session[:count] ||= 1
+    session[:count] += 1
+  
+    if session[:count] > 5
+      return :result
+    else
+      next_question = Question.where('id > ?', session[:current_question_id]).first
+      return next_question ? next_question.id : Question.first.id
+    end
   end
 end
