@@ -1,0 +1,22 @@
+databases:
+  - name: mini_quiz_app_DB
+    databaseName: mini_quiz_app_db
+    user: mini_quiz
+    region: Oregon
+
+services:
+  - type: web
+    name: mini_quiz
+    env: ruby
+    region: Oregon
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mini_quiz_app_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+
