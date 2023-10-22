@@ -1,13 +1,15 @@
-<%= form_with url: answer_question_path(@question), method: :post, local: true do |form| %>
-  <h1><%= @question.content %></h1>
-  <% @question.choices.each do |choice| %>
-    <li>
-      <%= radio_button_tag 'choice_id', choice.id %>
-      <%= label_tag "choice_#{choice.id}", choice.content %>
-    </li>
+<div class="container">
+  <%= form_with url: answer_question_path(@question), method: :post, local: true do |form| %>
+    <h1><%= "問題#{@question.id}" %></h1>
+    <h2><%= @question.content %></h2>
+    <div class="row">
+      <% @question.choices.each do |choice| %>
+        <ul>
+          <%= radio_button_tag 'choice_id', choice.id, required: true %>
+          <%= label_tag "choice_#{choice.id}", choice.content %>
+        </ul>
+      <% end %>
+    </div>
+    <%= form.submit "回答する" %>
   <% end %>
-  <%= form.submit "回答する" %>
-<% end %>
-
-
-
+</div>

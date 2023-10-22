@@ -1,5 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show]
+  def top
+    
+  end
   
   def show
     @question = Question.find(params[:id])

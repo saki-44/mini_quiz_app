@@ -1,0 +1,28 @@
+@import "bootstrap";
+
+.container { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 上端に寄せる */
+  align-items: center;
+  margin-top: 50px; /* 上マージンを追加して調整 */
+  height: 100vh;
+} 
+
+@media (min-width: 768px) { 
+  .container { 
+      width: 750px; 
+      } 
+  } 
+
+@media (min-width: 992px) { 
+  .container { 
+      width: 970px; 
+      } 
+  } 
+
+@media (min-width: 1200px) { 
+  .container { 
+      width: 1170px; 
+      } 
+  }
