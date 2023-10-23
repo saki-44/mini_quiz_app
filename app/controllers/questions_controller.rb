@@ -33,6 +33,9 @@ class QuestionsController < ApplicationController
     #session[:correct_answers] = 0
   end
 
+  def correct_answer
+    
+  end
   private
 
   def set_question

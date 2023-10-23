@@ -24,7 +24,7 @@ question1.choices.create!(content: "はい", correct: false)
 question1.choices.create!(content: "いいえ", correct: true)
 
 # 問題6
-question1 = Question.create!(content: "イーロン・マスクはカナダの大学出身である")
+question1 = Question.create!(content: "イーロン・マスクはカナダの大学に在学していた")
 question1.choices.create!(content: "はい", correct: true)
 question1.choices.create!(content: "いいえ", correct: false)
 

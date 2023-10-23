@@ -1,6 +1,18 @@
+<%= stylesheet_link_tag 'result' %>
 <div class="container">
-  <h1>結果発表！</h1>
+  <h2><span>結果発表！</span></h2>
   <p>8問中、あなたの正解数は<%= @result %>問だったよ。</p>
 
-  <%= link_to "もう一度挑戦する", root_path, class: 'btn btn-primary' %>
+   <% if @result.nil? %>
+    <%= "0問正解!" %>
+  <% elsif @result <= 3 %>
+    <%= "ぶっちゃけカナダのことメープルシロップとナイアガラの滝ぐらいしか知らないでしょ？" %>
+  <% elsif @result <= 6 %>
+    <%= "なかなかの知識！もっとカナダについて知ってもらえると嬉しいです！" %>
+  <% elsif @result <= 8 %>
+    <%= "すごい！貴方カナダ人かカナダに住んでた？" %>
+  <% end %>
 
+  <%= link_to "解答", correct_answer_path, class: 'btn btn-danger' %></br>
+
+  <%= link_to "もう一度挑戦する", root_path, class: 'btn btn-primary' %>

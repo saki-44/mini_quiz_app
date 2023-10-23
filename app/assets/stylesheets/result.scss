@@ -67,19 +67,3 @@ h2 span:after {
   border-width: 10px 10px 0 0;
 }
 
-
-.button {
-  font-family: 'cursive', cursive;
-  color: #e60e0e; /* テキストの色を指定 */
-  background-color: #f7f7f7; /* 背景色を設定 */
-  padding: 10px 20px; /* パディングを追加 */
-  text-align: center; /* テキストを中央に配置 */
-  border-radius: 10px; /* 角丸のボーダーを設定 */
-  box-shadow: 2px 2px 5px #888888; /* 影を追加 */
-}
-
-.button:hover {
-  background-color:  #e60e0e;  /* ホバー時の背景色を変更 */
-  color: #ffffff; /* ホバー時のテキスト色を変更 */
-  /* 他のスタイルプロパティを追加できます */
-}

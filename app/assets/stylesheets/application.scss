@@ -1,4 +1,5 @@
-@import "bootstrap";
+@import 'bootstrap';
+@import 'font-awesome';
 
 .container { 
   display: flex;
@@ -7,8 +8,24 @@
   align-items: center;
   margin-top: 50px; /* 上マージンを追加して調整 */
   height: 100vh;
-} 
+}
 
+h2 {
+  position: relative;
+  margin: 30px;
+  text-align: center;
+}
+
+h1 {
+  position: relative;
+  margin: 30px;
+  text-align: center;
+}
+
+.block {
+  margin: 0 auto;
+  width:150px;
+}
 @media (min-width: 768px) { 
   .container { 
       width: 750px; 
