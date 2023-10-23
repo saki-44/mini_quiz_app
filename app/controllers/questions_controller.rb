@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
     session[:count] ||= 1
     session[:count] += 1
   
-    if session[:count] > 5
+    if session[:count] > 8
       return :result
     else
       next_question = Question.where('id > ?', session[:current_question_id]).first
