@@ -1,7 +1,7 @@
 <div class="container">
   <%= form_with url: answer_question_path(@question), method: :post, local: true do |form| %>
-    <h1><%= "No.#{@question.id}" %></h1>
-    <h2><%= @question.content %></h2>
+    <h2><%= "No.#{@question.id}" %></h2>
+    <h3><%= @question.content %></h3>
   <div class="block">
     <div class="row">
       <% @question.choices.each do |choice| %>

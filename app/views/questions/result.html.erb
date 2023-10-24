@@ -1,18 +1,16 @@
 <%= stylesheet_link_tag 'result' %>
 <div class="container">
   <h2><span>結果発表！</span></h2>
-  <p>8問中、あなたの正解数は<%= @result %>問だったよ。</p>
-
-   <% if @result.nil? %>
-    <%= "0問正解!" %>
-  <% elsif @result <= 3 %>
-    <%= "ぶっちゃけカナダのことメープルシロップとナイアガラの滝ぐらいしか知らないでしょ？" %>
+  <h3>8問中、あなたの正解数は<%= @result %>問だったよ。</h3>
+  <p>
+  <% if @result.nil? || @result <= 3 %>
+    <%= "【ぶっちゃけカナダのことメープルシロップとナイアガラの滝ぐらいしか知らないでしょ？】" %>
   <% elsif @result <= 6 %>
-    <%= "なかなかの知識！もっとカナダについて知ってもらえると嬉しいです！" %>
+    <%= "【なかなかの知識！もっとカナダについて知ってもらえると嬉しいです！】" %>
   <% elsif @result <= 8 %>
-    <%= "すごい！貴方カナダ人かカナダに住んでた？" %>
+    <%= "【すごい！貴方カナダ人かカナダに住んでた？】" %>
   <% end %>
-
-  <%= link_to "解答", correct_answer_path, class: 'btn btn-danger' %></br>
-
-  <%= link_to "もう一度挑戦する", root_path, class: 'btn btn-primary' %>
+  </p>
+  <%= link_to "Twitterで結果を共有する", "https://twitter.com/intent/tweet?text=私の正解数は#{@result}問でした！&url=#{request.url}", target: "_blank", class: "btn btn-primary" %></br>
+  <%= link_to "もう一度挑戦する", root_path, class: 'btn btn-success' %></br>
+  <%= link_to "解答を見る", correct_answer_path, class: 'btn btn-danger' %></br>

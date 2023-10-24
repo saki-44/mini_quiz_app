@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 
   def result
     # セッションから正解数を取得し、ビューに渡す
-    @result = session[:correct_answers]
+    @result = session[:correct_answers].to_i
     # セッションをリセット
     session.clear
     #session[:correct_answers] = 0
