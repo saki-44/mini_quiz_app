@@ -11,6 +11,6 @@
     <%= "【すごい！貴方カナダ人かカナダに住んでた？】" %>
   <% end %>
   </p>
-  <%= link_to "Twitterで結果を共有する", "https://twitter.com/intent/tweet?text=私の正解数は#{@result}問でした！&url=#{request.url}", target: "_blank", class: "btn btn-primary" %></br>
+  <%= link_to "結果を共有する", "https://twitter.com/intent/tweet?text=私の正解数は#{@result}問でした！&url=https://mini-quiz.onrender.com, title: 'Twitter', target: "_blank", class:'fab fa-twitter' %></br>
   <%= link_to "もう一度挑戦する", root_path, class: 'btn btn-success' %></br>
   <%= link_to "解答を見る", correct_answer_path, class: 'btn btn-danger' %></br>
